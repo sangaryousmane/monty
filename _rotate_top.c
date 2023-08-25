@@ -10,8 +10,8 @@ void _rotate_top(stack_t **head,  unsigned int c)
 {
 	stack_t *temp, *swapper;
 	(void)c;
-
-        temp = *head;
+	
+	temp = *head;
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
