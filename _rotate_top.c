@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
   *_rotate_top - rotates the stack to the top
