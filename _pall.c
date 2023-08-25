@@ -8,8 +8,8 @@
 */
 void _pall(stack_t **head, unsigned int c)
 {
+	stack_t *temp = *head;
 	(void)c;
-	stack_t *temp = head;
 
 	if (temp == NULL)
 		return;

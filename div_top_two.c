@@ -20,19 +20,13 @@ void div_top_two(stack_t **head, unsigned int keep)
 	if (size < 2)
 	{
 		fprintf(stderr, "L%d: can't div, stack too short\n", keep);
-		fclose(util.monty_file);
-		free(util.line);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		free_them(head);
 	}
 	temp = *head;
 	if (temp->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", keep);
-		fclose(util.monty_file);
-		free(util.line);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		free_them(head);
 	}
 	swapper = temp->next->n / temp->n;
 	temp->next->n = swapper;

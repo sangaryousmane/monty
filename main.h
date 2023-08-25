@@ -59,28 +59,29 @@ typedef struct instruction_s
 } instruction_t;
 
 
+void free_them(stack_t **head);
 char *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 ssize_t getstdin(char **lineptr, int file);
 char  *clean_line(char *content);
 void _push(stack_t **head, unsigned int c);
 void _pall(stack_t **head, unsigned int c);
-void f_pint(stack_t **head, unsigned int number);
-int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
+void _pint(stack_t **head, unsigned int c);
+int _commands(char *content, stack_t **head, unsigned int counter, FILE *file);
 void free_stack(stack_t *head);
-void f_pop(stack_t **head, unsigned int counter);
-void f_swap(stack_t **head, unsigned int counter);
+void _pop(stack_t **head, unsigned int c);
+void _swap(stack_t **head, unsigned int counter);
 void add_top(stack_t **head, unsigned int counter);
-void f_nop(stack_t **head, unsigned int counter);
-void f_sub(stack_t **head, unsigned int counter);
+void _nothing(stack_t **head, unsigned int c);
+void _sub(stack_t **head, unsigned int c);
 void div_top_two(stack_t **head, unsigned int keep);
-void f_mul(stack_t **head, unsigned int counter);
-void f_mod(stack_t **head, unsigned int counter);
-void f_pchar(stack_t **head, unsigned int counter);
-void f_pstr(stack_t **head, unsigned int counter);
-void f_rotl(stack_t **head, unsigned int counter);
-void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter);
-void addnode(stack_t **head, int n);
-void addqueue(stack_t **head, int n);
-void f_queue(stack_t **head, unsigned int counter);
-void f_stack(stack_t **head, unsigned int counter);
+void mul_top_two(stack_t **head, unsigned int c);
+void _mod(stack_t **head, unsigned int c);
+void _print_char(stack_t **head, unsigned int c);
+void _print_string(stack_t **head, unsigned int c);
+void _rotate_top(stack_t **head, unsigned int counter);
+void _rotate(stack_t **head, __attribute__((unused)) unsigned int counter);
+void _add_node(stack_t **head, int n);
+void enqueue(stack_t **head, int n);
+void _queue(stack_t **head, unsigned int c);
+void _stack(stack_t **head, unsigned int counter);
 #endif

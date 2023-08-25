@@ -24,23 +24,17 @@ void _push(stack_t **head, unsigned int c)
 		if (flag == 1)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", c);
-			fclose(util.monty_file);
-			free(util.line);
-			free_stack(*head);
-			exit(EXIT_FAILURE);
+			free_them(head);
 		}
 	}
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", c);
-		fclose(util.monty_file);
-		free(util.line);
-		free_stack(*head);
-		exit(EXIT_FAILURE);
+		free_them(head);
 	}
 	n = atoi(util.value);
 	if (util.flag_change == 0)
-		addnode(head, n);
+		_add_node(head, n);
 	else
-		addqueue(head, n);
+		enqueue(head, n);
 }

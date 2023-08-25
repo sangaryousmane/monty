@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
 * main - monty code interpreter
@@ -10,7 +11,6 @@ int main(int argc, char *argv[])
 {
 	char *content;
 	FILE *file;
-	utils_t	util = {NULL, NULL, NULL, 0};
 	size_t size = 0;
 	ssize_t _line = 1;
 	stack_t *lifo = NULL;
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 		c++;
 		if (_line > 0)
 		{
-			execute(content, &lifo, c, file);
+			_commands(content, &lifo, c, file);
 		}
 		free(content);
 	}
