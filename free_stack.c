@@ -7,31 +7,30 @@
 */
 void free_stack(stack_t *head)
 {
-	stack_t *aux;
+	stack_t *temp;
 
-	aux = head;
+	temp = head;
 	while (head)
 	{
-		aux = head->next;
+		temp = head->next;
 		free(head);
-		head = aux;
+		head = temp;
 	}
 }
 
 
 /**
- * f_pchar - prints the char at the top of the stack,
- * followed by a new line
+ * f_pchar - prints the char at top with newline
  * @head: stack head
  * @counter: line_number
  * Return: no return
 */
 void f_pchar(stack_t **head, unsigned int counter)
 {
-	stack_t *h;
+	stack_t *temp;
 
-	h = *head;
-	if (!h)
+	temp = *head;
+	if (!temp)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", counter);
 		fclose(bus.file);
@@ -39,7 +38,7 @@ void f_pchar(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	if (h->n > 127 || h->n < 0)
+	if (temp->n > 127 || temp->n < 0)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", counter);
 		fclose(bus.file);
@@ -47,5 +46,5 @@ void f_pchar(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	printf("%c\n", h->n);
+	printf("%c\n", temp->n);
 }
