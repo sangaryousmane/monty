@@ -9,7 +9,7 @@
 void f_add(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
-	int len = 0, aux;
+	int len = 0, temp;
 
 	h = *head;
 	while (h)
@@ -20,14 +20,14 @@ void f_add(stack_t **head, unsigned int counter)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(util.file);
+		free(util.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
-	aux = h->n + h->next->n;
-	h->next->n = aux;
+	temp = h->n + h->next->n;
+	h->next->n = temp;
 	*head = h->next;
 	free(h);
 }
@@ -42,15 +42,15 @@ void f_add(stack_t **head, unsigned int counter)
 void addnode(stack_t **head, int n)
 {
 
-	stack_t *new_node, *aux;
+	stack_t *new_node, *temp;
 
-	aux = *head;
+	temp = *head;
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{ printf("Error\n");
 		exit(0); }
-	if (aux)
-		aux->prev = new_node;
+	if (temp)
+		temp->prev = new_node;
 	new_node->n = n;
 	new_node->next = *head;
 	new_node->prev = NULL;
@@ -67,7 +67,7 @@ void addnode(stack_t **head, int n)
 void f_mul(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
-	int len = 0, aux;
+	int len = 0, temp;
 
 	h = *head;
 	while (h)
@@ -78,14 +78,14 @@ void f_mul(stack_t **head, unsigned int counter)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(util.file);
+		free(util.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
-	aux = h->next->n * h->n;
-	h->next->n = aux;
+	temp = h->next->n * h->n;
+	h->next->n = temp;
 	*head = h->next;
 	free(h);
 }
@@ -101,7 +101,7 @@ void f_mul(stack_t **head, unsigned int counter)
 void f_mod(stack_t **head, unsigned int counter)
 {
 	stack_t *h;
-	int len = 0, aux;
+	int len = 0, temp;
 
 	h = *head;
 	while (h)
@@ -112,8 +112,8 @@ void f_mod(stack_t **head, unsigned int counter)
 	if (len < 2)
 	{
 		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(util.file);
+		free(util.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
@@ -121,13 +121,13 @@ void f_mod(stack_t **head, unsigned int counter)
 	if (h->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", counter);
-		fclose(bus.file);
-		free(bus.content);
+		fclose(util.file);
+		free(util.content);
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	aux = h->next->n % h->n;
-	h->next->n = aux;
+	temp = h->next->n % h->n;
+	h->next->n = temp;
 	*head = h->next;
 	free(h);
 }
