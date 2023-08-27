@@ -8,7 +8,7 @@
 */
 void f_pop(stack_t **head, unsigned int counter)
 {
-	stack_t *h;
+	stack_t *temp;
 
 	if (*head == NULL)
 	{
@@ -18,9 +18,9 @@ void f_pop(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	h = *head;
-	*head = h->next;
-	free(h);
+	temp = *head;
+	*head = temp->next;
+	free(temp);
 }
 
 
@@ -45,16 +45,16 @@ void f_nop(stack_t **head, unsigned int counter)
 */
 void f_pall(stack_t **head, unsigned int counter)
 {
-	stack_t *h;
+	stack_t *temp;
 	(void)counter;
 
-	h = *head;
-	if (h == NULL)
+	temp = *head;
+	if (temp == NULL)
 		return;
-	while (h)
+	while (temp)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		printf("%d\n", temp->n);
+		temp = temp->next;
 	}
 }
 
