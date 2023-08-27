@@ -40,7 +40,7 @@ typedef struct utility_t
 	int lifi;
 }  utility;
 
-extern utility util;
+extern utility bus;
 
 /**
  * struct instruction_s - opcode and its function
